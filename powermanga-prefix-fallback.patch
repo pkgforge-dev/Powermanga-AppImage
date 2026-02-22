@@ -1,0 +1,13 @@
+--- a/src/tools.c
++++ b/src/tools.c
+@@ -65,6 +65,10 @@
+ static struct timeval time_begin;
+ static struct timeval ticks_previous;
+ #endif
++#ifndef PREFIX
++/* fallback when built without autotools (e.g. plain CMake builds) */
++#define PREFIX "/usr/local"
++#endif
+ static Uint16 little_endian_to_ushort (Uint16 * _pMem);
+ /** Prefixe where the data files are localised */
+ static const char prefix_dir[] = PREFIX;
