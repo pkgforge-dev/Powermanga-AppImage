@@ -1,0 +1,4 @@
+#!/bin/sh
+dir=$CONFIGDIR/tlk-game
+mkdir -p "$dir"
+cd "$dir"
