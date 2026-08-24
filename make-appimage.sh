@@ -6,7 +6,7 @@ ARCH=$(uname -m)
 VERSION=$(pacman -Q powermanga | awk '{print $2; exit}')
 export ARCH VERSION
 export OUTPATH=./dist
-export ADD_HOOKS="self-updater.bg.hook"
+export ADD_HOOKS="self-updater.hook"
 export UPINFO="gh-releases-zsync|${GITHUB_REPOSITORY%/*}|${GITHUB_REPOSITORY#*/}|latest|*$ARCH.AppImage.zsync"
 export ICON=/usr/share/pixmaps/powermanga.png
 export DESKTOP=/usr/share/applications/powermanga.desktop
