@@ -3,7 +3,7 @@
 # Powermanga-AppImage 🐧
 
 [![GitHub Downloads](https://img.shields.io/github/downloads/pkgforge-dev/Powermanga-AppImage/total?logo=github&label=GitHub%20Downloads)](https://github.com/pkgforge-dev/Powermanga-AppImage/releases/latest)
-[![CI Build Status](https://github.com//pkgforge-dev/Powermanga-AppImage/actions/workflows/appimage.yml/badge.svg)](https://github.com/pkgforge-dev/Powermanga-AppImage/releases/latest)
+[![CI Build Status](https://github.com/pkgforge-dev/Powermanga-AppImage/actions/workflows/appimage.yml/badge.svg)](https://github.com/pkgforge-dev/Powermanga-AppImage/releases/latest)
 [![Latest Stable Release](https://img.shields.io/github/v/release/pkgforge-dev/Powermanga-AppImage)](https://github.com/pkgforge-dev/Powermanga-AppImage/releases/latest)
 
 <p align="center">
