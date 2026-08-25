@@ -1,4 +1,4 @@
 #!/bin/false
-dir=${XDG_CONFIG_HOME:-~/.config}/tlk-game
+dir=$CONFIGDIR/tlk-game
 mkdir -p "$dir"
 cd "$dir"
