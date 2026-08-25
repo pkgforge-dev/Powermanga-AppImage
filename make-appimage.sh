@@ -13,7 +13,7 @@ export STARTUPWMCLASS=powermanga
 export DEPLOY_OPENGL=1
 
 # Deploy dependencies
-quick-sharun ./AppDir/bin/powermanga
+quick-sharun ./AppDir/bin/powermanga /usr/lib/libmodplug.so*
 echo 'SHARUN_WORKING_DIR=${SHARUN_DIR}/bin' >> ./AppDir/.env
 
 # Turn AppDir into AppImage
