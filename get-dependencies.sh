@@ -20,8 +20,8 @@ echo "Building Powermanga..."
 echo "---------------------------------------------------------------"
 REPO="https://github.com/brunonymous/Powermanga"
 VERSION="$(git ls-remote "$REPO" HEAD | cut -c 1-9 | head -1)"
-echo "$VERSION" > ./LATEST_VERSION
-git clone --depth 1 "$REPO" ./Powermanga
+git clone "$REPO" ./Powermanga
+echo "$VERSION" > ~/version
 
 cd ./Powermanga
 # CMake build has no PREFIX fallback (autotools passes it via src/Makefile.am)
