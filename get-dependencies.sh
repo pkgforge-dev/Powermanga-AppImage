@@ -6,16 +6,35 @@ ARCH=$(uname -m)
 
 echo "Installing package dependencies..."
 echo "---------------------------------------------------------------"
-#pacman -Syu --noconfirm
+pacman -Syu --noconfirm \
+    cmake      \
+    ninja      \
+    patch      \
+    sdl2_mixer
 
 echo "Installing debloated packages..."
 echo "---------------------------------------------------------------"
 get-debloated-pkgs --add-common --prefer-nano libdecor-mini
 
-# Comment this out if you need an AUR package
-PRE_BUILD_CMDS="sed -i 's/ --prefix=\/usr//; s|usr/games|usr/local/share/games|' ./PKGBUILD" make-aur-package powermanga
-mkdir -p ./AppDir/bin
-mv -v /usr/bin/powermanga ./AppDir/bin
-mv -v /usr/share/games/powermanga/* ./AppDir/bin
+echo "Building Powermanga..."
+echo "---------------------------------------------------------------"
+REPO="https://github.com/brunonymous/Powermanga"
+# master is the only branch with CMake + SDL2 support (release tags are autotools-only)
+VERSION="$(git ls-remote "$REPO" HEAD | cut -c 1-9 | head -1)"
+echo "$VERSION" > ./LATEST_VERSION
+git clone --depth 1 "$REPO" ./Powermanga
 
-# If the application needs to be manually built that has to be done down here
+cd ./Powermanga
+# CMake build has no PREFIX fallback (autotools passes it via src/Makefile.am)
+patch -Np1 -i ../powermanga-prefix-fallback.patch
+cmake -Bbuild -GNinja                    \
+    -DCMAKE_BUILD_TYPE=Release           \
+    -DCMAKE_POLICY_VERSION_MINIMUM=3.5   \
+    -DPOWERMANGA_SDL=ON                  \
+    -DPOWERMANGA_SDL2=ON                 \
+    -DUSE_SDLMIXER=ON
+cmake --build build
+
+mkdir -p ../AppDir/bin
+mv -v build/powermanga ../AppDir/bin
+cp -vr graphics sounds texts data ../AppDir/bin

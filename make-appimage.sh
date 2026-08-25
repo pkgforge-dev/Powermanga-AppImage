@@ -3,19 +3,19 @@
 set -eu
 
 ARCH=$(uname -m)
-VERSION=$(pacman -Q powermanga | awk '{print $2; exit}')
+VERSION=$(cat ./LATEST_VERSION)
 export ARCH VERSION
 export OUTPATH=./dist
 export ADD_HOOKS="self-updater.hook"
 export UPINFO="gh-releases-zsync|${GITHUB_REPOSITORY%/*}|${GITHUB_REPOSITORY#*/}|latest|*$ARCH.AppImage.zsync"
-export ICON=/usr/share/pixmaps/powermanga.png
-export DESKTOP=/usr/share/applications/powermanga.desktop
+export ICON=./Powermanga/images_for_menu_entry/powermanga_48x48.png
+export DESKTOP=./Powermanga/powermanga.desktop
 export STARTUPWMCLASS=
 export DEPLOY_OPENGL=1
 
 # Deploy dependencies
 quick-sharun ./AppDir/bin/powermanga
-#echo 'SHARUN_WORKING_DIR=${SHARUN_DIR}/bin' >> ./AppDir/.env
+echo 'SHARUN_WORKING_DIR=${SHARUN_DIR}/bin' >> ./AppDir/.env
 
 # Turn AppDir into AppImage
 quick-sharun --make-appimage
