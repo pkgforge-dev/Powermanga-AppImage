@@ -5,7 +5,7 @@ set -eu
 ARCH=$(uname -m)
 export ARCH
 export OUTPATH=./dist
-export ADD_HOOKS="self-updater.hook"
+export ADD_HOOKS="self-updater.hook:wayland-is-broken.hook"
 export UPINFO="gh-releases-zsync|${GITHUB_REPOSITORY%/*}|${GITHUB_REPOSITORY#*/}|latest|*$ARCH.AppImage.zsync"
 export ICON=https://raw.githubusercontent.com/brunonymous/Powermanga/refs/heads/master/images_for_menu_entry/powermanga_48x48.png
 export DESKTOP=https://raw.githubusercontent.com/brunonymous/Powermanga/refs/heads/master/powermanga.desktop
