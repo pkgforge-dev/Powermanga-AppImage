@@ -19,7 +19,6 @@ get-debloated-pkgs --add-common --prefer-nano libdecor-mini
 echo "Building Powermanga..."
 echo "---------------------------------------------------------------"
 REPO="https://github.com/brunonymous/Powermanga"
-# master is the only branch with CMake + SDL2 support (release tags are autotools-only)
 VERSION="$(git ls-remote "$REPO" HEAD | cut -c 1-9 | head -1)"
 echo "$VERSION" > ./LATEST_VERSION
 git clone --depth 1 "$REPO" ./Powermanga
