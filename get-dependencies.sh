@@ -9,7 +9,6 @@ echo "---------------------------------------------------------------"
 pacman -Syu --noconfirm \
     cmake      \
     ninja      \
-    patch      \
     sdl2_mixer
 
 echo "Installing debloated packages..."
