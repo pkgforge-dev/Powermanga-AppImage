@@ -31,7 +31,7 @@ cmake -Bbuild -GNinja                    \
     -DPOWERMANGA_SDL=ON                  \
     -DPOWERMANGA_SDL2=ON                 \
     -DUSE_SDLMIXER=ON
-cmake --build build
+cmake --build build -j$(nproc)
 
 mkdir -p ../AppDir/bin
 mv -v build/powermanga ../AppDir/bin
