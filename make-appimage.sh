@@ -10,7 +10,7 @@ export UPINFO="gh-releases-zsync|${GITHUB_REPOSITORY%/*}|${GITHUB_REPOSITORY#*/}
 export ICON=https://raw.githubusercontent.com/brunonymous/Powermanga/refs/heads/master/images_for_menu_entry/powermanga_48x48.png
 export DESKTOP=https://raw.githubusercontent.com/brunonymous/Powermanga/refs/heads/master/powermanga.desktop
 export STARTUPWMCLASS=powermanga
-export DEPLOY_OPENGL=1
+export USE_HOST_DRIVERS_EXPERIMENTAL=1
 
 # Deploy dependencies
 quick-sharun ./AppDir/bin/powermanga /usr/lib/libmodplug.so*
