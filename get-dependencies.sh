@@ -8,7 +8,6 @@ echo "Installing package dependencies..."
 echo "---------------------------------------------------------------"
 pacman -Syu --noconfirm \
     cmake      \
-    ninja      \
     sdl2_mixer
 
 echo "Installing debloated packages..."
@@ -25,7 +24,7 @@ echo "$VERSION" > ~/version
 cd ./Powermanga
 # CMake build has no PREFIX fallback (autotools passes it via src/Makefile.am)
 patch -Np1 -i ../powermanga-prefix-fallback.patch
-cmake -Bbuild -GNinja                    \
+cmake -Bbuild                            \
     -DCMAKE_BUILD_TYPE=Release           \
     -DCMAKE_POLICY_VERSION_MINIMUM=3.5   \
     -DPOWERMANGA_SDL=ON                  \
