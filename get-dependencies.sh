@@ -18,7 +18,7 @@ echo "Building Powermanga..."
 echo "---------------------------------------------------------------"
 REPO="https://github.com/brunonymous/Powermanga"
 VERSION="$(git ls-remote "$REPO" HEAD | cut -c 1-9 | head -1)"
-git clone "$REPO" ./Powermanga
+git clone --depth 1 "$REPO" ./Powermanga
 echo "$VERSION" > ~/version
 
 cd ./Powermanga
